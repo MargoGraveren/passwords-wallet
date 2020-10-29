@@ -9,7 +9,11 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">{{ __('Add Password') }}</div>
+                    @if(Auth::user()->isPasswordKeptHash)
+                        <div class="card-header">{{ __('Add Password with SHA512') }}</div>
+                    @else
+                        <div class="card-header">{{ __('Add Password with HMAC') }}</div>
+                    @endif
                     <div class="card-body">
                         <form method="POST" action="{{route('passwords.store')}}">
                             @csrf

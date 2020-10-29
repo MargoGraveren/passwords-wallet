@@ -22,7 +22,7 @@
 </div>
 <footer>
     <div class="footer-author">
-        Garbarz
+
     </div>
 </footer>
 </body>

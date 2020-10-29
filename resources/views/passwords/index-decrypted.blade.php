@@ -18,26 +18,17 @@
                             @foreach($passwords as $password)
                                 @if($password->user_id == Auth::user()->id)
                                     <p><b>Login: </b>{{ $password->login }} |
-                                        <b>Password: </b><label
-                                            id="encryptedPasswordLabel{{$password->id}}">{{ $password->password }}</label>
-                                        <label id="decryptedPasswordLabel{{$password->id}}"
-                                               hidden="hidden">{{\App\Http\Controllers\PasswordController::decryptPassword($password->password, Auth::user()->key)}}</label>
+                                        <b>Password: </b>
+                                        <label>{{\App\Http\Controllers\PasswordController::decryptPassword($password->password, Auth::user()->key)}}</label>
                                     </p>
                                     <p><b>Web Address: </b>{{ $password->web_address }}</p>
                                     <p><b>Description:</b></p>
                                     <p>{{ $password->description }}</p>
-{{--                                    <button id="decryptPasswordButton{{$password->id}}"--}}
-{{--                                            onclick="decryptPassword({{$password->id}})">Decrypt Password--}}
-{{--                                    </button>--}}
-{{--                                    <button id="encryptPasswordButton{{$password->id}}"--}}
-{{--                                            onclick="encryptPassword({{$password->id}})" hidden="hidden">--}}
-{{--                                        Encrypt Password--}}
-{{--                                    </button>--}}
                                     <hr>
                                 @endif
                             @endforeach
-                            <form method="GET" action="{{route('password.confirm')}}">
-                                <button>Decrypt Passwords</button>
+                            <form method="GET" action="{{route('home')}}">
+                                <button>Encrypt Passwords</button>
                             </form>
                         @endif
                     </div>

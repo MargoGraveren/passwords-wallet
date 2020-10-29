@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Password;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Mockery\Generator\StringManipulation\Pass\Pass;
 
 class PasswordController extends Controller
 {
@@ -15,12 +14,13 @@ class PasswordController extends Controller
     }
 
     public function index(){
-//        $user=Auth::user();
-//        $this->decrypt(Auth::user()->password()->first(), Auth::user()->key);
-//        var_dump($this->decryptPassword(Auth::user()->password()->first()->password, Auth::user()->key));
-
         $passwords = Password::latest()->get();
         return view('passwords.index')->with('passwords', $passwords);
+    }
+
+    public function decryptedIndex(){
+        $passwords = Password::latest()->get();
+        return view('passwords.index-decrypted')->with('passwords', $passwords);
     }
 
     public function store(Request $request){

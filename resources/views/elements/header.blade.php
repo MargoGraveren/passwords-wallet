@@ -10,10 +10,10 @@
                 <a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="passwords/create">Add Password</a>
+                <a class="nav-link" href="/passwords/create">Add Password</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="main-password/reset">Change Main Password</a>
+                <a class="nav-link" href="/reset">Change Main Password</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/logout">Log Out</a>

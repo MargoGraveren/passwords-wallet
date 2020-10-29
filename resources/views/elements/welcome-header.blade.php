@@ -17,7 +17,7 @@
             </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
-            <span>Nazwa przedmiotu</span>
+            <span>The Secutiry of IT Systems</span>
         </form>
     </div>
 </nav>

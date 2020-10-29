@@ -18,17 +18,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/home', 'PasswordController@index');
+Route::get('/home', 'PasswordController@index')->name('home');
 
 Auth::routes();
 
 Route::get('/logout', 'Auth\LoginController@logout');
 
 Route::resource('passwords', 'PasswordController');
-//
-//Route::post('/reset', 'Auth\ResetPasswordController@update')->name('password.update');
 
-Route::get('main-password/reset', 'ChangePasswordController@create');
+Route::get('/reset', 'ChangePasswordController@create');
 
-Route::post('main-password/reset', 'ChangePasswordController@updatePassword');
+Route::post('/reset', 'ChangePasswordController@updatePassword');
 
+Route::get('/home/decrypted', 'PasswordController@decryptedIndex');

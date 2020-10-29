@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('header')
-    @include('elements.welcome-header')
+    @include('elements.header')
 @endsection
 
 @section('content')
