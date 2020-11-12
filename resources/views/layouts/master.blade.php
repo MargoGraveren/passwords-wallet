@@ -22,7 +22,10 @@
 </div>
 <footer>
     <div class="footer-author">
-
+        <div class="author">
+            <hr>
+            <span>PGarbarz</span>
+        </div>
     </div>
 </footer>
 </body>

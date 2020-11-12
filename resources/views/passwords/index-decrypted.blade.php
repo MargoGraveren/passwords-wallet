@@ -28,7 +28,13 @@
                                 @endif
                             @endforeach
                             <form method="GET" action="{{route('home')}}">
-                                <button>Encrypt Passwords</button>
+                                <div class="form-group row mb-0">
+                                    <div class="col-md-6 offset-md-4">
+                                        <button type="submit" class="btn btn-primary">
+                                            Encrypt Passwords
+                                        </button>
+                                    </div>
+                                </div>
                             </form>
                         @endif
                     </div>

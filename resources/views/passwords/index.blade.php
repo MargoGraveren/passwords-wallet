@@ -20,24 +20,21 @@
                                     <p><b>Login: </b>{{ $password->login }} |
                                         <b>Password: </b><label
                                             id="encryptedPasswordLabel{{$password->id}}">{{ $password->password }}</label>
-                                        <label id="decryptedPasswordLabel{{$password->id}}"
-                                               hidden="hidden">{{\App\Http\Controllers\PasswordController::decryptPassword($password->password, Auth::user()->key)}}</label>
                                     </p>
                                     <p><b>Web Address: </b>{{ $password->web_address }}</p>
                                     <p><b>Description:</b></p>
                                     <p>{{ $password->description }}</p>
-{{--                                    <button id="decryptPasswordButton{{$password->id}}"--}}
-{{--                                            onclick="decryptPassword({{$password->id}})">Decrypt Password--}}
-{{--                                    </button>--}}
-{{--                                    <button id="encryptPasswordButton{{$password->id}}"--}}
-{{--                                            onclick="encryptPassword({{$password->id}})" hidden="hidden">--}}
-{{--                                        Encrypt Password--}}
-{{--                                    </button>--}}
                                     <hr>
                                 @endif
                             @endforeach
                             <form method="GET" action="{{route('password.confirm')}}">
-                                <button>Decrypt Passwords</button>
+                                <div class="form-group row mb-0">
+                                    <div class="col-md-6 offset-md-4">
+                                        <button type="submit" class="btn btn-primary">
+                                            Decrypt Passwords
+                                        </button>
+                                    </div>
+                                </div>
                             </form>
                         @endif
                     </div>
