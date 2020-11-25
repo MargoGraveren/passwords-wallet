@@ -20,3 +20,9 @@ footer{
     margin: 20px;
     text-align: center;
 }
+.login-history-title{
+    font-weight: bold;
+}
+.login-history-element{
+    padding: 5px 10px;
+}

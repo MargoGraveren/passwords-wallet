@@ -31,3 +31,10 @@ Route::get('/reset', 'ChangePasswordController@create');
 Route::post('/reset', 'ChangePasswordController@updatePassword');
 
 Route::get('/home/decrypted', 'PasswordController@decryptedIndex');
+
+Route::post('/login', 'UserLoginsController@store');
+
+Route::get('/history', function (){
+    $userLogins = \App\UserLogins::latest()->get();
+    return view('login_history')->with('userLogins', $userLogins);
+});

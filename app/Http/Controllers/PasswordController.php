@@ -3,8 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Password;
+use App\User;
+use App\UserLogins;
+use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use InvalidArgumentException;
 
 class PasswordController extends Controller

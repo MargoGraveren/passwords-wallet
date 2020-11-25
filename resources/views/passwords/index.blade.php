@@ -12,8 +12,10 @@
                     <div class="card-header">{{ __('Your Passwords') }}</div>
                     <div class="card-body">
                         <hr>
-                        @if($passwords == null)
-                            <span>You have no passwords here.</span>
+                        @if(sizeof($passwords) == 0)
+                            <div class="row justify-content-center">
+                                <span>You have no passwords here.</span>
+                            </div>
                         @else
                             @foreach($passwords as $password)
                                 @if($password->user_id == Auth::user()->id)
