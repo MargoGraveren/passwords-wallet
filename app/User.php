@@ -46,6 +46,10 @@ class User extends Authenticatable
         return $this->hasMany('App\UserLogins');
     }
 
+    public function blockedIp(){
+        return $this->hasMany('App\BlockedAccount');
+    }
+
     public function sendPasswordResetNotification($token)
     {
         $this->notify(new ResetPassword($token));

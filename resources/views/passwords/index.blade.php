@@ -11,7 +11,7 @@
                 <div class="card">
                     <div class="card-header">{{ __('Your Passwords') }}</div>
                     <div class="card-body">
-                        <hr>
+
                         @if(sizeof($passwords) == 0)
                             <div class="row justify-content-center">
                                 <span>You have no passwords here.</span>

@@ -38,3 +38,8 @@ Route::get('/history', function (){
     $userLogins = \App\UserLogins::latest()->get();
     return view('login_history')->with('userLogins', $userLogins);
 });
+
+Route::get('/blocked', 'BlockedIpController@index');
+
+Route::delete('/blocked/{id}', 'BlockedIpController@destroy');
+Route::get('/blocked/{id}', 'BlockedIpController@destroy');

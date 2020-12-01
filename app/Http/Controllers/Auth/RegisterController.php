@@ -62,8 +62,7 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\User
      */
-    protected function create(array $data)
-    {
+    protected function create(array $data){
         if($data['isPasswordKeptHash']==1){
             return User::create([
                 'name' => $data['name'],

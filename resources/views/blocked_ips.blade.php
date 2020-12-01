@@ -9,14 +9,14 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">{{ __('Login History') }}</div>
+                    <div class="card-header">{{ __('Blocked IPs') }}</div>
                     <div class="card-body">
                         <div class="col-md-12">
                             <table class="login-history row justify-content-center">
-                                @if(sizeof($userLogins) == 0)
+                                @if(sizeof($blockedIps) == 0)
                                     <tr>
                                         <div class="row justify-content-center">
-                                            <span>First login.</span>
+                                            <span>You have no blocked IPs.</span>
                                         </div>
                                     </tr>
                                 @else
@@ -25,23 +25,24 @@
                                             <p>IP Address</p>
                                         </td>
                                         <td class="login-history-element">
-                                            <p>Login Result</p>
+                                            <p>Date and Hour of Block</p>
                                         </td>
-                                        <td class="login-history-element">
-                                            <p>Date and Hour of Login</p>
+                                        <td>
+
                                         </td>
                                     </tr>
-                                    @foreach($userLogins as $userLogin)
-                                        @if($userLogin->user_id == Auth::user()->id)
+
+                                    @foreach($blockedIps as $blockedIp)
+                                        @if($blockedIp->user_id == Auth::user()->id)
                                             <tr>
                                                 <td class="login-history-element">
-                                                    {{ $userLogin->IP_address }}
+                                                    {{ $blockedIp->IP_address }}
                                                 </td>
                                                 <td class="login-history-element">
-                                                    {{ $userLogin->login_result }}
+                                                    {{ $blockedIp->created_at }}
                                                 </td>
-                                                <td class="login-history-element">
-                                                    {{ $userLogin->created_at }}
+                                                <td>
+                                                    <a href="/blocked/{{ $blockedIp->id }}">Delete Block</a>
                                                 </td>
                                             </tr>
                                         @endif

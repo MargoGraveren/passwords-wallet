@@ -20,21 +20,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6f921e07-71ca-465c-b4bf-992761d9ab47" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/UserLoginsController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/UserLogins.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_11_22_094157_create_user_logins_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/login_history.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/blocked_ips.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PasswordController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PasswordController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserLoginsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserLoginsController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/UserFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/UserFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_11_22_094157_create_user_logins_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_11_22_094157_create_user_logins_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/elements/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/elements/header.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/login_history.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/login_history.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/passwords/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/passwords/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Unit/PasswordTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/PasswordTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Unit/UserAuthTest.php" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -241,7 +239,12 @@
       <workItem from="1605890501097" duration="2472000" />
       <workItem from="1606038036870" duration="13728000" />
       <workItem from="1606312359812" duration="6112000" />
-      <workItem from="1606331035893" duration="7976000" />
+      <workItem from="1606331035893" duration="9864000" />
+      <workItem from="1606404620577" duration="6138000" />
+      <workItem from="1606430071166" duration="7929000" />
+      <workItem from="1606468797727" duration="2354000" />
+      <workItem from="1606597027887" duration="3175000" />
+      <workItem from="1606725358266" duration="6299000" />
     </task>
     <task id="LOCAL-00001" summary="created new views (about, contact, home, training), fixed problem with responvisity in header">
       <created>1595682436055</created>
@@ -306,7 +309,14 @@
       <option name="project" value="LOCAL" />
       <updated>1605222523078</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="something">
+      <created>1606343347734</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1606343347734</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -333,7 +343,8 @@
     <MESSAGE value="DZIAŁA" />
     <MESSAGE value="Done" />
     <MESSAGE value="created unit tests for PasswordController.php and User.php" />
-    <option name="LAST_COMMIT_MESSAGE" value="created unit tests for PasswordController.php and User.php" />
+    <MESSAGE value="something" />
+    <option name="LAST_COMMIT_MESSAGE" value="something" />
   </component>
   <component name="WindowStateProjectService">
     <state x="223" y="87" width="1089" height="727" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1604959319555">
@@ -344,24 +355,22 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="505" y="208" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.864@0.0.1536.864" timestamp="1606077257718" />
-    <state x="204" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1605257799143">
+    <state x="204" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1606468976135">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="296" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.768@0.0.1366.768" timestamp="1597857529694" />
-    <state x="204" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.864@0.0.1536.864" timestamp="1605257799143" />
-    <state x="464" y="155" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1606341254756">
+    <state x="204" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.864@0.0.1536.864" timestamp="1606468976135" />
+    <state x="464" y="155" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1606431115489">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="413" y="138" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.768@0.0.1366.768" timestamp="1597843955325" />
-    <state x="464" y="155" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1536.864@0.0.1536.864" timestamp="1606341254756" />
+    <state x="464" y="155" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1536.864@0.0.1536.864" timestamp="1606431115489" />
     <state x="516" y="277" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1605254119768">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="516" y="277" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1536.864@0.0.1536.864" timestamp="1605254119768" />
-    <state x="207" y="1" key="CommitChangelistDialog2" timestamp="1605222521825">
+    <state x="207" y="1" key="CommitChangelistDialog2" timestamp="1606343345717">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="207" y="1" key="CommitChangelistDialog2/0.0.1536.864@0.0.1536.864" timestamp="1605222521825" />
+    <state x="207" y="1" key="CommitChangelistDialog2/0.0.1536.864@0.0.1536.864" timestamp="1606343345717" />
     <state x="545" y="345" key="ComposerInitDialogKey" timestamp="1603762592114">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
@@ -383,23 +392,25 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="567" y="119" key="NewPhpClassDialog/0.0.1536.864@0.0.1536.864" timestamp="1605207598482" />
-    <state x="309" y="131" key="Vcs.Push.Dialog.v2" timestamp="1605222526884">
+    <state x="309" y="131" key="Vcs.Push.Dialog.v2" timestamp="1606343351425">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="275" y="116" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1597951052542" />
-    <state x="309" y="131" key="Vcs.Push.Dialog.v2/0.0.1536.864@0.0.1536.864" timestamp="1605222526884" />
-    <state x="93" y="93" width="1350" height="678" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1605018102277">
+    <state x="309" y="131" key="Vcs.Push.Dialog.v2/0.0.1536.864@0.0.1536.864" timestamp="1606343351425" />
+    <state x="93" y="93" width="1350" height="678" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1606469820721">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="93" y="93" width="1350" height="678" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1536.864@0.0.1536.864" timestamp="1605018102277" />
+    <state x="93" y="93" width="1350" height="678" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1536.864@0.0.1536.864" timestamp="1606469820721" />
     <state x="586" y="346" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1605016710798">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="586" y="346" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.864@0.0.1536.864" timestamp="1605016710798" />
-    <state x="389" y="100" width="756" height="763" key="search.everywhere.popup" timestamp="1604961565625">
+    <state x="478" y="31" width="579" height="801" key="find.popup" timestamp="1606469428305">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1597846196143" />
-    <state x="389" y="100" width="756" height="763" key="search.everywhere.popup/0.0.1536.864@0.0.1536.864" timestamp="1604961565625" />
+    <state x="478" y="31" width="579" height="801" key="find.popup/0.0.1536.864@0.0.1536.864" timestamp="1606469428305" />
+    <state x="389" y="100" width="756" height="763" key="search.everywhere.popup" timestamp="1606602132553">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="389" y="100" width="756" height="763" key="search.everywhere.popup/0.0.1536.864@0.0.1536.864" timestamp="1606602132553" />
   </component>
 </project>

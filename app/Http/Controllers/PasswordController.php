@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\BlockedAccount;
 use App\Password;
 use App\User;
 use App\UserLogins;
@@ -20,8 +21,16 @@ class PasswordController extends Controller
     }
     //returns the main view with the list of passwords
     public function index(){
+        var_dump($this->checkIfIPIsBlocked('127.0.0.1'));
         $passwords = Password::latest()->get();
         return view('passwords.index')->with('passwords', $passwords);
+    }
+    private function checkIfIPIsBlocked($ip){
+        $blockedIp = BlockedAccount::where('IP_address', $ip)->first();
+        if($blockedIp != null){
+            return true;
+        }
+        else return false;
     }
     //returns the view with decrypted passwords
     public function decryptedIndex(){

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUserLoginsTable extends Migration
+class CreateBlockedAccountsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,11 @@ class CreateUserLoginsTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_logins', function (Blueprint $table) {
+        Schema::create('blocked_accounts', function (Blueprint $table) {
             $table->id();
-            $table->string('IP_address', 20);
-            $table->string('login_result');
-            $table->unsignedInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users')->cascadeOnDelete();
+            $table->string('IP_address', 60)->nullable();
+            $table->unsignedInteger('user_id')->nullable();
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }
@@ -30,6 +29,6 @@ class CreateUserLoginsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_logins');
+        Schema::dropIfExists('blocked_ips');
     }
 }
