@@ -22,6 +22,9 @@
                 <a class="nav-link" href="/blocked">Blocked IPs</a>
             </li>
             <li class="nav-item">
+                <a class="nav-link" href="/">Modify Mode</a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" href="/logout">Log Out</a>
             </li>
         </ul>

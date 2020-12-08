@@ -18,12 +18,18 @@
                                 @if($password->user_id == Auth::user()->id)
                                     <p><b>Login: </b>{{ $password->login }} |
                                         <b>Password: </b>
-                                        <label>{{\App\Http\Controllers\PasswordController::decryptPassword($password->password, Auth::user()->key)}}</label>
+                                        <label>{{\App\Http\Controllers\PasswordController::decryptPassword($password->password, App\User::find($password->owner_id)->key)}}</label>
                                     </p>
                                     <p><b>Web Address: </b>{{ $password->web_address }}</p>
                                     <p><b>Description:</b></p>
                                     <p>{{ $password->description }}</p>
-                                    <a href="/share/{{$password->id}}">Share password</a>
+                                    {{--                                    <p>{{$password->owner_id}}</p>--}}
+                                    @if(Auth::user()->id == $password->owner_id)
+                                        <a href="/share/{{$password->id}}">Share password</a>
+                                        <a href="#">Delete Password</a>
+                                        <a href="#">Modify Password</a>
+                                    @endif
+
                                     <hr>
                                 @endif
                             @endforeach

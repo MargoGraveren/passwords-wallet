@@ -42,7 +42,7 @@ class PasswordController extends Controller
             'web_address'=>$request->web_address,
             'login'=>$request->login,
             'description'=>$request->description,
-            'password_type'=>'O',
+            'owner_id'=>Auth::user()->id,
             'user_id'=>$user->id
         ]);
 

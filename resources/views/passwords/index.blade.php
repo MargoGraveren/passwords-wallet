@@ -26,7 +26,11 @@
                                     <p><b>Web Address: </b>{{ $password->web_address }}</p>
                                     <p><b>Description:</b></p>
                                     <p>{{ $password->description }}</p>
-                                    <a href="/share/{{$password->id}}">Share password</a>
+                                    @if(Auth::user()->id == $password->owner_id)
+                                        <a href="/share/{{$password->id}}">Share password</a>
+                                        <a href="#">Delete Password</a>
+                                        <a href="#">Modify Password</a>
+                                    @endif
                                     <hr>
                                 @endif
                             @endforeach
