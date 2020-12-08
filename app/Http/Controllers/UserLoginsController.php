@@ -48,7 +48,7 @@ class UserLoginsController extends Controller
         return $loginResult;
     }
 
-    public function findUserByEmail($email)
+    public static function findUserByEmail($email)
     {
         $user = User::where('email', $email)->first();
         return $user;

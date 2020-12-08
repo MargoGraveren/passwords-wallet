@@ -26,18 +26,18 @@
                                     <p><b>Web Address: </b>{{ $password->web_address }}</p>
                                     <p><b>Description:</b></p>
                                     <p>{{ $password->description }}</p>
+                                    <a href="/share/{{$password->id}}">Share password</a>
                                     <hr>
                                 @endif
                             @endforeach
-                            <form method="GET" action="{{route('password.confirm')}}">
-                                <div class="form-group row mb-0">
-                                    <div class="col-md-6 offset-md-4">
-                                        <button type="submit" class="btn btn-primary">
-                                            Decrypt Passwords
-                                        </button>
-                                    </div>
+                            <div class="form-group row mb-0">
+                                <div class="col-md-6 offset-md-4">
+                                    <button onclick="window.location='{{ route("decrypted") }}'"
+                                            class="btn btn-primary">
+                                        Decrypt Passwords
+                                    </button>
                                 </div>
-                            </form>
+                            </div>
                         @endif
                     </div>
                 </div>

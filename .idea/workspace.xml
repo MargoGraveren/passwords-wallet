@@ -20,11 +20,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6f921e07-71ca-465c-b4bf-992761d9ab47" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/SharePasswordController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/passwords/share.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/ConfirmPasswordController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/ConfirmPasswordController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/VerificationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/VerificationController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PasswordController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PasswordController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserLoginsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserLoginsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/database.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phpunit.xml" beforeDir="false" afterPath="$PROJECT_DIR$/phpunit.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Unit/UserLoginsTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/UserLoginsTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Password.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Password.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/auth.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/auth.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_10_27_090557_create_passwords_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_10_27_090557_create_passwords_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_11_25_145431_create_blocked_accounts_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_11_25_145431_create_blocked_accounts_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/passwords/confirm.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/passwords/confirm.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/passwords/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/passwords/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/passwords/index-decrypted.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/passwords/index-decrypted.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/passwords/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/passwords/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -158,7 +169,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../praca-inzynierska" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
@@ -168,16 +179,16 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\PhpstormProjects\odNOVA\public\images" />
-      <recent name="D:\PhpstormProjects\odNOVA\resources\images" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\PhpStormProjects\passwords-wallet-ver2\tests\Unit" />
       <recent name="D:\PhpStormProjects\passwords-wallet-ver2\resources\views\elements" />
       <recent name="D:\PhpStormProjects\passwords-wallet-ver2\resources\views\layouts" />
       <recent name="D:\PhpstormProjects\odNOVA\resources\views\layouts" />
       <recent name="D:\PhpstormProjects\odNOVA\public" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\PhpstormProjects\odNOVA\public\images" />
+      <recent name="D:\PhpstormProjects\odNOVA\resources\images" />
     </key>
   </component>
   <component name="RunManager">
@@ -237,7 +248,9 @@
       <workItem from="1606468797727" duration="2354000" />
       <workItem from="1606597027887" duration="3175000" />
       <workItem from="1606725358266" duration="6407000" />
-      <workItem from="1607005791641" duration="15502000" />
+      <workItem from="1607005791641" duration="15582000" />
+      <workItem from="1607072937599" duration="813000" />
+      <workItem from="1607371845433" duration="11842000" />
     </task>
     <task id="LOCAL-00001" summary="created new views (about, contact, home, training), fixed problem with responvisity in header">
       <created>1595682436055</created>
@@ -316,7 +329,14 @@
       <option name="project" value="LOCAL" />
       <updated>1606794405568</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="dodane komunikaty o błędach, blokada ip po kilku nieudanych logowaniach, blokada konta też, dodane testy">
+      <created>1607028410326</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1607028410326</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -346,7 +366,8 @@
     <MESSAGE value="something" />
     <MESSAGE value="dodane komunikaty o błędach" />
     <MESSAGE value="dodane komunikaty o błędach, blokada ip po kilku nieudanych logowaniach, blokada konta też" />
-    <option name="LAST_COMMIT_MESSAGE" value="dodane komunikaty o błędach, blokada ip po kilku nieudanych logowaniach, blokada konta też" />
+    <MESSAGE value="dodane komunikaty o błędach, blokada ip po kilku nieudanych logowaniach, blokada konta też, dodane testy" />
+    <option name="LAST_COMMIT_MESSAGE" value="dodane komunikaty o błędach, blokada ip po kilku nieudanych logowaniach, blokada konta też, dodane testy" />
   </component>
   <component name="WindowStateProjectService">
     <state x="223" y="87" width="1089" height="727" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1604959319555">
@@ -361,27 +382,27 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="204" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.864@0.0.1536.864" timestamp="1606468976135" />
-    <state x="464" y="155" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1607021568818">
+    <state x="464" y="155" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1607383997859">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="464" y="155" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1536.864@0.0.1536.864" timestamp="1607021568818" />
+    <state x="464" y="155" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1536.864@0.0.1536.864" timestamp="1607383997859" />
     <state x="516" y="277" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1605254119768">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="516" y="277" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1536.864@0.0.1536.864" timestamp="1605254119768" />
-    <state x="207" y="1" key="CommitChangelistDialog2" timestamp="1606794403889">
+    <state x="207" y="1" key="CommitChangelistDialog2" timestamp="1607028408911">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="207" y="1" key="CommitChangelistDialog2/0.0.1536.864@0.0.1536.864" timestamp="1606794403889" />
+    <state x="207" y="1" key="CommitChangelistDialog2/0.0.1536.864@0.0.1536.864" timestamp="1607028408911" />
     <state x="545" y="345" key="ComposerInitDialogKey" timestamp="1603762592114">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="545" y="345" key="ComposerInitDialogKey/0.0.1536.864@0.0.1536.864" timestamp="1603762592114" />
-    <state x="521" y="155" key="FileChooserDialogImpl" timestamp="1605019882929">
+    <state x="521" y="155" key="FileChooserDialogImpl" timestamp="1607379309888">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="463" y="138" key="FileChooserDialogImpl/0.0.1366.768@0.0.1366.768" timestamp="1601154485863" />
-    <state x="521" y="155" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1605019882929" />
+    <state x="521" y="155" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1607379309888" />
     <state x="615" y="330" key="Github.ShareDialog" timestamp="1603817804995">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
@@ -394,10 +415,10 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="567" y="119" key="NewPhpClassDialog/0.0.1536.864@0.0.1536.864" timestamp="1605207598482" />
-    <state x="309" y="131" key="Vcs.Push.Dialog.v2" timestamp="1606794408171">
+    <state x="309" y="131" key="Vcs.Push.Dialog.v2" timestamp="1607028415070">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="309" y="131" key="Vcs.Push.Dialog.v2/0.0.1536.864@0.0.1536.864" timestamp="1606794408171" />
+    <state x="309" y="131" key="Vcs.Push.Dialog.v2/0.0.1536.864@0.0.1536.864" timestamp="1607028415070" />
     <state x="93" y="93" width="1350" height="678" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1606469820721">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
@@ -414,9 +435,9 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="425" y="197" key="run.anything.popup/0.0.1536.864@0.0.1536.864" timestamp="1607017497408" />
-    <state x="389" y="100" width="756" height="763" key="search.everywhere.popup" timestamp="1606602132553">
+    <state x="389" y="100" width="756" height="763" key="search.everywhere.popup" timestamp="1607378737918">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="389" y="100" width="756" height="763" key="search.everywhere.popup/0.0.1536.864@0.0.1536.864" timestamp="1606602132553" />
+    <state x="389" y="100" width="756" height="763" key="search.everywhere.popup/0.0.1536.864@0.0.1536.864" timestamp="1607378737918" />
   </component>
 </project>

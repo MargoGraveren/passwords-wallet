@@ -1,5 +1,6 @@
 <?php
 
+use App\Password;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -14,13 +15,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Auth::routes();
+
 Route::get('/', function () {
     return view('welcome');
 });
 
 Route::get('/home', 'PasswordController@index')->name('home');
-
-Auth::routes();
 
 Route::get('/logout', 'Auth\LoginController@logout');
 
@@ -30,16 +31,20 @@ Route::get('/reset', 'ChangePasswordController@create');
 
 Route::post('/reset', 'ChangePasswordController@updatePassword');
 
-Route::get('/home/decrypted', 'PasswordController@decryptedIndex');
-
 Route::post('/login', 'UserLoginsController@store');
-
-Route::get('/history', function (){
-    $userLogins = \App\UserLogins::latest()->get();
-    return view('login_history')->with('userLogins', $userLogins);
-});
 
 Route::get('/blocked', 'BlockedIpController@index');
 
 Route::delete('/blocked/{id}', 'BlockedIpController@destroy');
+
 Route::get('/blocked/{id}', 'BlockedIpController@destroy');
+
+Route::resource('share', 'SharePasswordController')->middleware(['auth', 'verified', 'password.confirm']);
+
+Route::get('/decrypted', array('uses' => 'PasswordController@decryptedIndex',
+    'as' => 'decrypted'))->middleware(['auth', 'verified', 'password.confirm']);
+
+Route::get('/history', function () {
+    $userLogins = \App\UserLogins::latest()->get();
+    return view('login_history')->with('userLogins', $userLogins);
+});

@@ -19,6 +19,7 @@ class CreatePasswordsTable extends Migration
             $table->string('web_address', 120)->nullable();
             $table->string('login', 30)->nullable();
             $table->string('description', 255)->nullable();
+            $table->string('password_type', 1);
             $table->unsignedInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();

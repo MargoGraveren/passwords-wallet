@@ -11,7 +11,6 @@
                 <div class="card">
                     <div class="card-header">{{ __('Your Passwords') }}</div>
                     <div class="card-body">
-                        <hr>
                         @if($passwords == null)
                             <span>You have no passwords here.</span>
                         @else
@@ -24,6 +23,7 @@
                                     <p><b>Web Address: </b>{{ $password->web_address }}</p>
                                     <p><b>Description:</b></p>
                                     <p>{{ $password->description }}</p>
+                                    <a href="/share/{{$password->id}}">Share password</a>
                                     <hr>
                                 @endif
                             @endforeach

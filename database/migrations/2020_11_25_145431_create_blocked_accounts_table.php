@@ -17,7 +17,7 @@ class CreateBlockedAccountsTable extends Migration
             $table->id();
             $table->string('IP_address', 60)->nullable();
             $table->unsignedInteger('user_id')->nullable();
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ class CreateBlockedAccountsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('blocked_ips');
+        Schema::dropIfExists('blocked_accounts');
     }
 }

@@ -21,16 +21,9 @@ class PasswordController extends Controller
     }
     //returns the main view with the list of passwords
     public function index(){
-        var_dump($this->checkIfIPIsBlocked('127.0.0.1'));
         $passwords = Password::latest()->get();
+
         return view('passwords.index')->with('passwords', $passwords);
-    }
-    private function checkIfIPIsBlocked($ip){
-        $blockedIp = BlockedAccount::where('IP_address', $ip)->first();
-        if($blockedIp != null){
-            return true;
-        }
-        else return false;
     }
     //returns the view with decrypted passwords
     public function decryptedIndex(){
@@ -49,6 +42,7 @@ class PasswordController extends Controller
             'web_address'=>$request->web_address,
             'login'=>$request->login,
             'description'=>$request->description,
+            'password_type'=>'O',
             'user_id'=>$user->id
         ]);
 
@@ -66,6 +60,10 @@ class PasswordController extends Controller
 
     public function show(){
 
+    }
+    public function share($id){
+        $password = Password::find($id);
+        return view('passwords.share')->with('password', $password);
     }
     //this is some kind of connector with views - it allows to decrypt showed password, but no one has
     //to the encrypting function's body
@@ -85,7 +83,7 @@ class PasswordController extends Controller
     }
 
     //this function allows to encrypt password
-    private static function encrypt($plaintext, $key)
+    public static function encrypt($plaintext, $key)
     {
         if($plaintext == null || $key == null)
             throw new InvalidArgumentException();
