@@ -20,14 +20,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6f921e07-71ca-465c-b4bf-992761d9ab47" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/ModifyModeController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/modifymode.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BlockedIpController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BlockedIpController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ChangePasswordController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ChangePasswordController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PasswordController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PasswordController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SharePasswordController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SharePasswordController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Password.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Password.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserLoginsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserLoginsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/auth.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/auth.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/migrations/2020_10_27_090557_create_passwords_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_10_27_090557_create_passwords_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/passwords/confirm.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/passwords/confirm.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/passwords/email.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/passwords/email.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/elements/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/elements/header.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/passwords/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/passwords/edit.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/passwords/index-decrypted.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/passwords/index-decrypted.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/passwords/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/passwords/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/passwords/share.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/passwords/share.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -171,16 +183,17 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\PhpStormProjects\passwords-wallet-ver2\app\Http\Controllers" />
+      <recent name="D:\PhpstormProjects\odNOVA\public\images" />
+      <recent name="D:\PhpstormProjects\odNOVA\resources\images" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\PhpStormProjects\passwords-wallet-ver2\tests\Unit" />
       <recent name="D:\PhpStormProjects\passwords-wallet-ver2\resources\views\elements" />
       <recent name="D:\PhpStormProjects\passwords-wallet-ver2\resources\views\layouts" />
       <recent name="D:\PhpstormProjects\odNOVA\resources\views\layouts" />
       <recent name="D:\PhpstormProjects\odNOVA\public" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\PhpstormProjects\odNOVA\public\images" />
-      <recent name="D:\PhpstormProjects\odNOVA\resources\images" />
     </key>
   </component>
   <component name="RunManager">
@@ -243,7 +256,9 @@
       <workItem from="1607005791641" duration="15582000" />
       <workItem from="1607072937599" duration="813000" />
       <workItem from="1607371845433" duration="11905000" />
-      <workItem from="1607389958172" duration="1228000" />
+      <workItem from="1607389958172" duration="1294000" />
+      <workItem from="1607558467698" duration="675000" />
+      <workItem from="1607613554289" duration="24834000" />
     </task>
     <task id="LOCAL-00001" summary="created new views (about, contact, home, training), fixed problem with responvisity in header">
       <created>1595682436055</created>
@@ -336,7 +351,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607385900391</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="BSI na lab 7 - 4/6 zadań">
+      <created>1607391248959</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1607391248959</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -368,7 +390,8 @@
     <MESSAGE value="dodane komunikaty o błędach, blokada ip po kilku nieudanych logowaniach, blokada konta też" />
     <MESSAGE value="dodane komunikaty o błędach, blokada ip po kilku nieudanych logowaniach, blokada konta też, dodane testy" />
     <MESSAGE value="BSI na lab 7 - połowa za mną" />
-    <option name="LAST_COMMIT_MESSAGE" value="BSI na lab 7 - połowa za mną" />
+    <MESSAGE value="BSI na lab 7 - 4/6 zadań" />
+    <option name="LAST_COMMIT_MESSAGE" value="BSI na lab 7 - 4/6 zadań" />
   </component>
   <component name="WindowStateProjectService">
     <state x="223" y="87" width="1089" height="727" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1604959319555">
@@ -383,27 +406,27 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="204" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.864@0.0.1536.864" timestamp="1606468976135" />
-    <state x="464" y="155" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1607383997859">
+    <state x="464" y="155" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1607640384190">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="464" y="155" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1536.864@0.0.1536.864" timestamp="1607383997859" />
+    <state x="464" y="155" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1536.864@0.0.1536.864" timestamp="1607640384190" />
     <state x="516" y="277" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1605254119768">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="516" y="277" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1536.864@0.0.1536.864" timestamp="1605254119768" />
-    <state x="207" y="1" key="CommitChangelistDialog2" timestamp="1607385898917">
+    <state x="207" y="1" key="CommitChangelistDialog2" timestamp="1607391248347">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="207" y="1" key="CommitChangelistDialog2/0.0.1536.864@0.0.1536.864" timestamp="1607385898917" />
+    <state x="207" y="1" key="CommitChangelistDialog2/0.0.1536.864@0.0.1536.864" timestamp="1607391248347" />
     <state x="545" y="345" key="ComposerInitDialogKey" timestamp="1603762592114">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="545" y="345" key="ComposerInitDialogKey/0.0.1536.864@0.0.1536.864" timestamp="1603762592114" />
-    <state x="521" y="155" key="FileChooserDialogImpl" timestamp="1607379309888">
+    <state x="521" y="155" key="FileChooserDialogImpl" timestamp="1607647767006">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="463" y="138" key="FileChooserDialogImpl/0.0.1366.768@0.0.1366.768" timestamp="1601154485863" />
-    <state x="521" y="155" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1607379309888" />
+    <state x="521" y="155" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1607647767006" />
     <state x="615" y="330" key="Github.ShareDialog" timestamp="1603817804995">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
@@ -416,10 +439,14 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="567" y="119" key="NewPhpClassDialog/0.0.1536.864@0.0.1536.864" timestamp="1605207598482" />
-    <state x="309" y="131" key="Vcs.Push.Dialog.v2" timestamp="1607385928206">
+    <state x="604" y="356" key="NewPhpFileDialog" timestamp="1607626470463">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="309" y="131" key="Vcs.Push.Dialog.v2/0.0.1536.864@0.0.1536.864" timestamp="1607385928206" />
+    <state x="604" y="356" key="NewPhpFileDialog/0.0.1536.864@0.0.1536.864" timestamp="1607626470463" />
+    <state x="309" y="131" key="Vcs.Push.Dialog.v2" timestamp="1607391253408">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="309" y="131" key="Vcs.Push.Dialog.v2/0.0.1536.864@0.0.1536.864" timestamp="1607391253408" />
     <state x="93" y="93" width="1350" height="678" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1606469820721">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
@@ -428,10 +455,10 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="586" y="346" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.864@0.0.1536.864" timestamp="1605016710798" />
-    <state x="478" y="31" width="579" height="801" key="find.popup" timestamp="1607021312438">
+    <state x="478" y="31" width="579" height="801" key="find.popup" timestamp="1607627421377">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="478" y="31" width="579" height="801" key="find.popup/0.0.1536.864@0.0.1536.864" timestamp="1607021312438" />
+    <state x="478" y="31" width="579" height="801" key="find.popup/0.0.1536.864@0.0.1536.864" timestamp="1607627421377" />
     <state x="425" y="197" key="run.anything.popup" timestamp="1607017497408">
       <screen x="0" y="0" width="1536" height="864" />
     </state>

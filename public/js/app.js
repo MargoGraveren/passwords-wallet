@@ -1,9 +1,20 @@
-function json(url) {
-    return fetch(url).then(res => res.json());
+function deletePopupFunction(id) {
+    var popup = document.getElementById("deletePopup"+id);
+    popup.classList.toggle("show");
 }
-
-let apiKey = 'your_api_key';
-json(`https://api.ipdata.co?api-key=${apiKey}`).then(data => {
-    console.log(data.ip);
-    // so many more properties
-});
+function editPopupFunction(id) {
+    var popup = document.getElementById("editPopup"+id);
+    popup.classList.toggle("show");
+}
+function shareNotByAnOwnerPopupFunction(id) {
+    var popup = document.getElementById("shareNotByAnOwnerPopup"+id);
+    popup.classList.toggle("show");
+}
+function deleteNotByAnOwnerPopupFunction(id) {
+    var popup = document.getElementById("deleteNotByAnOwnerPopup"+id);
+    popup.classList.toggle("show");
+}
+function editNotByAnOwnerPopupFunction(id) {
+    var popup = document.getElementById("editNotByAnOwnerPopup"+id);
+    popup.classList.toggle("show");
+}

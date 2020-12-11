@@ -9,6 +9,13 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
+
+                    @if(session()->has('error'))
+                        <div class="alert alert-danger">
+                            {{ session()->get('error') }}
+                        </div>
+                    @endif
+
                     <div class="card-header">{{ __('Confirm Password') }}</div>
 
                     <div class="card-body">

@@ -21,7 +21,7 @@ class CreatePasswordsTable extends Migration
             $table->string('description', 255)->nullable();
             $table->unsignedInteger('owner_id')->nullable();
             $table->unsignedInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

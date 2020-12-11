@@ -16,16 +16,21 @@ class SharePasswordController extends Controller
     public function store(Request $request){
         $user = UserLoginsController::findUserByEmail($request->email);
 
-        $password = new Password([
-            'password'=>$request->password,
-            'web_address'=>$request->web_address,
-            'login'=>$request->login,
-            'description'=>$request->description,
-            'owner_id'=>Auth::user()->id,
-            'user_id'=>$user->id
-        ]);
+        if($user == null){
+            return redirect('/share/'.$request->password_id)->with('error', 'No user found');
+        }
+        else{
+            $password = new Password([
+                'password'=>$request->password,
+                'web_address'=>$request->web_address,
+                'login'=>$request->login,
+                'description'=>$request->description,
+                'owner_id'=>Auth::user()->id,
+                'user_id'=>$user->id
+            ]);
 
-        $password->save();
-        return redirect('/home');
+            $password->save();
+            return redirect('/home');
+        }
     }
 }

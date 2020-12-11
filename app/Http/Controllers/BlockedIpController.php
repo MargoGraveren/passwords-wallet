@@ -4,11 +4,13 @@ namespace App\Http\Controllers;
 
 use App\BlockedAccount;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 
 class BlockedIpController extends Controller
 {
     public function index(){
         $blockedIps = BlockedAccount::latest()->get();
+        var_dump(Cache::get('isInReadMode'));
         return view('blocked_ips')->with('blockedIps', $blockedIps);
     }
 

@@ -23,13 +23,42 @@
                                     <p><b>Web Address: </b>{{ $password->web_address }}</p>
                                     <p><b>Description:</b></p>
                                     <p>{{ $password->description }}</p>
-                                    {{--                                    <p>{{$password->owner_id}}</p>--}}
                                     @if(Auth::user()->id == $password->owner_id)
-                                        <a href="/share/{{$password->id}}">Share password</a>
-                                        <a href="#">Delete Password</a>
-                                        <a href="#">Modify Password</a>
+                                        <div class="row justify-content-center">
+                                            <a href="/share/{{$password->id}}">Share password</a> |
+                                            @if(\Illuminate\Support\Facades\Cache::get('isInReadMode') == false)
+                                                <a href="/passwords/{{ $password->id }}">Delete Password</a> |
+                                                <a href="/passwords/{{ $password->id }}/edit">Edit Password</a>
+                                            @else
+                                                <div class="popup" onclick="deletePopupFunction({{$password->id}})">Delete Password
+                                                    <span class="popuptext" id="deletePopup{{$password->id}}">You have to switch to
+                                                        the modify mode to delete a password.</span>
+                                                </div> |
+                                                <div class="popup" onclick="editPopupFunction({{$password->id}})">Edit Password
+                                                    <span class="popuptext" id="editPopup{{$password->id}}">You have to switch to the
+                                                        modify mode to edit a password.</span>
+                                                </div>
+                                            @endif
+
+                                        </div>
                                     @endif
 
+                                    @if(Auth::user()->id != $password->owner_id)
+                                        <div class="row justify-content-center">
+                                            <div class="popup" onclick="shareNotByAnOwnerPopupFunction({{$password->id}})">Share Password
+                                                <span class="popuptext" id="shareNotByAnOwnerPopup{{$password->id}}">You have to be an owner
+                                                    to share a password.</span>
+                                            </div> |
+                                            <div class="popup" onclick="deleteNotByAnOwnerPopupFunction({{$password->id}})">Delete Password
+                                                <span class="popuptext" id="deleteNotByAnOwnerPopup{{$password->id}}">You have to be an owner
+                                                    to delete a password.</span>
+                                            </div> |
+                                            <div class="popup" onclick="editNotByAnOwnerPopupFunction({{$password->id}})">Edit Password
+                                                <span class="popuptext" id="editNotByAnOwnerPopup{{$password->id}}">You have to be an owner
+                                                    to edit a password.</span>
+                                            </div>
+                                        </div>
+                                    @endif
                                     <hr>
                                 @endif
                             @endforeach

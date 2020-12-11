@@ -35,6 +35,11 @@
                             <div class="form-group row">
 
                                 <div class="col-md-6">
+                                    <input id="password_id" type="hidden" class="form-control" name="password_id"
+                                           value="{{ $password->id }}"    >
+                                </div>
+
+                                <div class="col-md-6">
                                     <input id="password" type="hidden" class="form-control" name="password"
                                            value="{{ $password->password }}"    >
                                 </div>

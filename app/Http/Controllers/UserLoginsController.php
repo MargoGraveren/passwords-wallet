@@ -8,6 +8,7 @@ use App\UserLogins;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 
@@ -16,10 +17,15 @@ class UserLoginsController extends Controller
 
     public function store(Request $request)
     {
+        Cache::put('isInReadMode', true);
         $loginResult = $this->verifyUser($request->email, $request->password);
-        $userId = $this->findUserByEmail($request->email)->id;
+        $user = $this->findUserByEmail($request->email);
 //        $ipAddress = $request->ip();
         $ipAddress = $request->getHttpHost();
+
+        if($user == null){
+            return redirect('/login')->with('error', 'No user found.');
+        }
 
         if ($loginResult == true) {
             $this->storeUserLoginData($request, 'T');
@@ -28,17 +34,15 @@ class UserLoginsController extends Controller
         }
         if ($loginResult == false) {
             $this->storeUserLoginData($request, 'F');
-            $this->setDelayBasedOnUserFailedLogins($ipAddress, $userId);
-            $this->setDelayBasedOnIPsFailedLogins($ipAddress, $userId);
-            if ($this->checkIfIPIsBlocked($ipAddress, $userId) == true) {
+            $this->setDelayBasedOnUserFailedLogins($ipAddress, $user->id);
+            $this->setDelayBasedOnIPsFailedLogins($ipAddress, $user->id);
+            if ($this->checkIfIPIsBlocked($ipAddress, $user->id) == true) {
                 return redirect('/login')->with('error', 'Your IP has been blocked!');
-            } elseif ($this->checkIfUserIsBlocked($userId) == true) {
+            } elseif ($this->checkIfUserIsBlocked($user->id) == true) {
                 return redirect('/login')->with('error', 'Your account has been blocked!');
             }
-//            return redirect('/login')->with('error', $this->countFailedLoginsAmountForUser($userId));
             return redirect('/login')->with('error', 'Failed login data');
         }
-
     }
 
     public function verifyUser($email, $password)
@@ -51,7 +55,10 @@ class UserLoginsController extends Controller
     public static function findUserByEmail($email)
     {
         $user = User::where('email', $email)->first();
-        return $user;
+        if($user != null)
+            return $user;
+        else
+            return null;
     }
 
     public function storeUserLoginData($request, $result)

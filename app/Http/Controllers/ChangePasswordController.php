@@ -6,6 +6,7 @@ use App\Password;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
@@ -13,6 +14,7 @@ class ChangePasswordController extends Controller
 {
     public function create()
     {
+        var_dump(Cache::get('isInReadMode'));
         return view('auth.main-password-reset');
     }
     //this function allows to update the main password with the rest of passwords

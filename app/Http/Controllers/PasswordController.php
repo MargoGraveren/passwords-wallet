@@ -2,15 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\BlockedAccount;
 use App\Password;
-use App\User;
-use App\UserLogins;
-use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Cache;
 use InvalidArgumentException;
+use Mockery\Generator\StringManipulation\Pass\Pass;
 
 class PasswordController extends Controller
 {
@@ -22,6 +19,8 @@ class PasswordController extends Controller
     //returns the main view with the list of passwords
     public function index(){
         $passwords = Password::latest()->get();
+
+        var_dump(Cache::get('isInReadMode'));
 
         return view('passwords.index')->with('passwords', $passwords);
     }
@@ -54,17 +53,20 @@ class PasswordController extends Controller
         return view('passwords.create');
     }
 
-    public function update(){
-
+    public function edit($id){
+        $password = Password::find($id);
+        return view('passwords.edit')->with('password', $password);
     }
 
     public function show(){
 
     }
-    public function share($id){
-        $password = Password::find($id);
-        return view('passwords.share')->with('password', $password);
+
+    public function destroy($id){
+        Password::where('id', $id)->delete();
+        return redirect('/home');
     }
+
     //this is some kind of connector with views - it allows to decrypt showed password, but no one has
     //to the encrypting function's body
     public static function encryptPassword($plaintext, $key){
