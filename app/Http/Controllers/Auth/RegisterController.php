@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
@@ -63,6 +64,7 @@ class RegisterController extends Controller
      * @return \App\User
      */
     protected function create(array $data){
+        Cache::put('isInReadMode', true);
         if($data['isPasswordKeptHash']==1){
             return User::create([
                 'name' => $data['name'],

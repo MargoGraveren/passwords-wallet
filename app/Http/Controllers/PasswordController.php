@@ -2,12 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\DataChange;
+use App\FunctionRuns;
 use App\Password;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\DB;
 use InvalidArgumentException;
 use Mockery\Generator\StringManipulation\Pass\Pass;
+use Symfony\Component\VarDumper\Cloner\Data;
 
 class PasswordController extends Controller
 {
@@ -16,44 +20,44 @@ class PasswordController extends Controller
     {
         $this->middleware('auth');
     }
+
     //returns the main view with the list of passwords
     public function index(){
         $passwords = Password::latest()->get();
-
-        var_dump(Cache::get('isInReadMode'));
-
+        ActivityController::registerNewActivity('read');
         return view('passwords.index')->with('passwords', $passwords);
     }
+
     //returns the view with decrypted passwords
     public function decryptedIndex(){
         $passwords = Password::latest()->get();
         return view('passwords.index-decrypted')->with('passwords', $passwords);
     }
+
     //puts hashed password into DB
     public function store(Request $request){
-        $request->validate([
-
-        ]);
-
-        $user = Auth::user();
+        ActivityController::registerNewActivity('create');
         $password = new Password([
-            'password'=>$this->encrypt($request->password, $user->key),
+            'password'=>$this->encrypt($request->password, Auth::user()->key),
             'web_address'=>$request->web_address,
             'login'=>$request->login,
             'description'=>$request->description,
-            'owner_id'=>Auth::user()->id,
-            'user_id'=>$user->id
+            'owner_id'=>Auth::id(),
+            'user_id'=>Auth::id()
         ]);
 
         $password->save();
+
         return redirect('/home');
     }
+
     //this function return the view with creating password
     public function create(){
         return view('passwords.create');
     }
 
     public function edit($id){
+        ActivityController::registerNewActivity('update');
         $password = Password::find($id);
         return view('passwords.edit')->with('password', $password);
     }
@@ -62,7 +66,32 @@ class PasswordController extends Controller
 
     }
 
+    public function update(Request $request, $id){
+        $password = Password::find($id);
+        $previousData = DataChangeController::setPreviousData($password);
+
+        $presentData = [
+            'password'=>$this->encrypt($request->password, Auth::user()->key),
+            'web_address'=>$request->web_address,
+            'login'=>$request->login,
+            'description'=>$request->description,
+            'owner_id'=>Auth::id(),
+            'user_id'=>Auth::id()];
+
+        DataChangeController::storeChangedData($id, 'update', 'passwords', implode("|", $previousData),
+            implode("|", $presentData));
+
+        $password->update($presentData);
+        return redirect('/home');
+    }
+
     public function destroy($id){
+        ActivityController::registerNewActivity('delete');
+        $password = Password::find($id);
+        $previousData = DataChangeController::setPreviousData($password);
+        $presentData = null;
+        DataChangeController::storeChangedData($id, 'delete', 'passwords', implode("|", $previousData),
+            $presentData);
         Password::where('id', $id)->delete();
         return redirect('/home');
     }
@@ -76,6 +105,7 @@ class PasswordController extends Controller
         $encrypted = self::encrypt($plaintext, $key);
         return $encrypted;
     }
+
     //it's the same situation as above
     public static function decryptPassword($ciphertext, $key){
         if($ciphertext == null || $key == null)
@@ -96,6 +126,7 @@ class PasswordController extends Controller
         $ciphertext = base64_encode( $iv.$ciphertext_raw );
         return $ciphertext;
     }
+
     //this function allows to decrypt password
     private static function decrypt($ciphertext, $key)
     {

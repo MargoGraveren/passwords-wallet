@@ -15,9 +15,10 @@
                         <div class="card-header">{{ __('Edit Password with HMAC') }}</div>
                     @endif
                     <div class="card-body">
-                        <form  action="{{route('passwords.update', $password->id)}}">
-                            {{ method_field('PATCH') }}
-                            @csrf
+                        {!! Form::model($password, ['method'=>'PATCH', 'action'=>['PasswordController@update',
+                            $password->id]]) !!}
+{{--                        <form method="patch" action="{{route('passwords.update', $password->id)}}">--}}
+{{--                            @csrf--}}
                             <div class="form-group row">
                                 <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
@@ -90,7 +91,8 @@
                                     </button>
                                 </div>
                             </div>
-                        </form>
+{{--                        </form>--}}
+                        {!! Form::close() !!}
                     </div>
                 </div>
             </div>

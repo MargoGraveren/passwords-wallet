@@ -10,7 +10,6 @@ class BlockedIpController extends Controller
 {
     public function index(){
         $blockedIps = BlockedAccount::latest()->get();
-        var_dump(Cache::get('isInReadMode'));
         return view('blocked_ips')->with('blockedIps', $blockedIps);
     }
 

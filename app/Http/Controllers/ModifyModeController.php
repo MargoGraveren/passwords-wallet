@@ -13,11 +13,13 @@ class ModifyModeController extends Controller
 
     public static function switchToTheModifyMode(){
         Cache::put('isInReadMode', false);
+        ActivityController::registerNewActivity('modifymode');
         return redirect('/home');
     }
 
     public static function switchToTheReadMode(){
         Cache::put('isInReadMode', true);
+        ActivityController::registerNewActivity('readmode');
         return redirect('/home');
     }
 }

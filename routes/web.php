@@ -1,5 +1,6 @@
 <?php
 
+use App\FunctionRuns;
 use App\Password;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
@@ -40,6 +41,14 @@ Route::delete('/blocked/{id}', 'BlockedIpController@destroy');
 
 Route::get('/blocked/{id}', 'BlockedIpController@destroy');
 
+Route::get('/modifymode', 'ModifyModeController@index')->middleware(['auth', 'verified', 'password.confirm']);
+
+Route::get('/modifymodeon', 'ModifyModeController@switchToTheModifyMode');
+
+Route::get('/modifymodeoff', 'ModifyModeController@switchToTheReadMode');
+
+Route::get('/passwords/{passwords}/delete', 'PasswordController@destroy');
+
 Route::resource('share', 'SharePasswordController')->middleware(['auth',
     'verified', 'password.confirm']);
 
@@ -51,10 +60,8 @@ Route::get('/history', function () {
     return view('login_history')->with('userLogins', $userLogins);
 });
 
-Route::get('/modifymode', 'ModifyModeController@index')->middleware(['auth', 'verified', 'password.confirm']);
+Route::get('/activity', 'ActivityController@index');
 
-Route::get('/modifymodeon', 'ModifyModeController@switchToTheModifyMode');
+Route::get('/changes', 'DataChangeController@index');
 
-Route::get('/modifymodeoff', 'ModifyModeController@switchToTheReadMode');
-
-Route::get('/passwords/{passwords}/delete', 'PasswordController@destroy');
+Route::get('/details/{details}', 'DataChangeController@show');

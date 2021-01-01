@@ -14,7 +14,6 @@ class ChangePasswordController extends Controller
 {
     public function create()
     {
-        var_dump(Cache::get('isInReadMode'));
         return view('auth.main-password-reset');
     }
     //this function allows to update the main password with the rest of passwords
@@ -51,11 +50,13 @@ class ChangePasswordController extends Controller
             }
         }
 
+        ActivityController::registerNewActivity('changemainpassword');
+
         return redirect('/home');
     }
 
-//    private function updatePasswordsEncryption($string, $id, $key){
-//        DB::table('passwords')->where('user_id', $id)->update(['password'=>
-//            PasswordController::encryptPassword($string,$key)]);
-//    }
+    private function updatePasswordsEncryption($string, $id, $key){
+        DB::table('passwords')->where('user_id', $id)->update(['password'=>
+            PasswordController::encryptPassword($string,$key)]);
+    }
 }

@@ -18,6 +18,7 @@
                         @else
                             @foreach($passwords as $password)
                                 @if($password->user_id == Auth::user()->id)
+                                    <h6 class="row justify-content-center"><b>Password #{{ $password->id }}</b></h6>
                                     <p><b>Login: </b>{{ $password->login }} |
                                         <b>Password: </b>
                                         <label

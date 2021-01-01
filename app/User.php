@@ -50,6 +50,14 @@ class User extends Authenticatable
         return $this->hasMany('App\BlockedAccount');
     }
 
+    public function dataChange(){
+        return $this->hasMany('App\DataChange');
+    }
+
+    public function functionRun(){
+        return $this->hasMany('App\FunctionRuns');
+    }
+
     public function sendPasswordResetNotification($token)
     {
         $this->notify(new ResetPassword($token));
