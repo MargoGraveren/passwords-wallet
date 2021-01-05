@@ -12,6 +12,7 @@
                     <div class="card-header">{{ __('Login History') }}</div>
                     <div class="card-body">
                         <div class="col-md-12">
+                            <hr>
                             <table class="login-history row justify-content-center">
                                 @if(sizeof($userLogins) == 0)
                                     <tr>
@@ -48,6 +49,7 @@
                                     @endforeach
                                 @endif
                             </table>
+                            <hr>
                         </div>
                     </div>
                 </div>

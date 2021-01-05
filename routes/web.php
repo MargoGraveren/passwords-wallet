@@ -29,7 +29,7 @@ Route::get('/logout', 'Auth\LoginController@logout');
 
 Route::resource('passwords', 'PasswordController');
 
-Route::get('/reset', 'ChangePasswordController@create');
+Route::get('/reset', 'ChangePasswordController@create')->middleware(['auth', 'verified', 'password.confirm']);
 
 Route::post('/reset', 'ChangePasswordController@updatePassword');
 
@@ -62,6 +62,10 @@ Route::get('/history', function () {
 
 Route::get('/activity', 'ActivityController@index');
 
+Route::get('/activity/{activity}', 'ActivityController@putCache');
+
 Route::get('/changes', 'DataChangeController@index');
 
 Route::get('/details/{details}', 'DataChangeController@show');
+
+Route::get('details/update/{details}', 'DataChangeController@restoreData');

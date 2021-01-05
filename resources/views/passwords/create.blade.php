@@ -15,6 +15,7 @@
                         <div class="card-header">{{ __('Add Password with HMAC') }}</div>
                     @endif
                     <div class="card-body">
+                        <hr>
                         <form method="POST" action="{{route('passwords.store')}}">
                             @csrf
                             <div class="form-group row">
@@ -86,6 +87,7 @@
                                 </div>
                             </div>
                         </form>
+                        <hr>
                     </div>
                 </div>
             </div>

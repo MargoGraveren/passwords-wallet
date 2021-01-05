@@ -20,8 +20,8 @@ class CreateDataChangesTable extends Migration
             $table->integer('modified_record_id');
             $table->text('previous_value_of_record')->nullable();
             $table->text('present_value_of_record')->nullable();
-            $table->integer('action_type_id');
-            $table->integer('table_name_id');
+            $table->integer('action_type_id')->nullable();
+            $table->integer('table_name_id')->nullable();
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->cascadeOnDelete();
             $table->foreign('action_type_id')->references('id')->on('action_types')->cascadeOnDelete();

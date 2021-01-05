@@ -2,16 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\DataChange;
-use App\FunctionRuns;
 use App\Password;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Cache;
-use Illuminate\Support\Facades\DB;
 use InvalidArgumentException;
-use Mockery\Generator\StringManipulation\Pass\Pass;
-use Symfony\Component\VarDumper\Cloner\Data;
 
 class PasswordController extends Controller
 {
@@ -68,9 +62,10 @@ class PasswordController extends Controller
 
     public function update(Request $request, $id){
         $password = Password::find($id);
-        $previousData = DataChangeController::setPreviousData($password);
+        $previousData = DataChangeController::setDataArray($password);
 
         $presentData = [
+            'id'=>$id,
             'password'=>$this->encrypt($request->password, Auth::user()->key),
             'web_address'=>$request->web_address,
             'login'=>$request->login,
@@ -78,8 +73,8 @@ class PasswordController extends Controller
             'owner_id'=>Auth::id(),
             'user_id'=>Auth::id()];
 
-        DataChangeController::storeChangedData($id, 'update', 'passwords', implode("|", $previousData),
-            implode("|", $presentData));
+        DataChangeController::storeChangedData($password->id, 'update', 'passwords',
+            implode("|", $previousData), implode("|", $presentData));
 
         $password->update($presentData);
         return redirect('/home');
@@ -88,10 +83,9 @@ class PasswordController extends Controller
     public function destroy($id){
         ActivityController::registerNewActivity('delete');
         $password = Password::find($id);
-        $previousData = DataChangeController::setPreviousData($password);
-        $presentData = null;
-        DataChangeController::storeChangedData($id, 'delete', 'passwords', implode("|", $previousData),
-            $presentData);
+        $previousData = DataChangeController::setDataArray($password);
+        DataChangeController::storeChangedData($password->id, 'delete', 'passwords',
+            implode("|", $previousData), null);
         Password::where('id', $id)->delete();
         return redirect('/home');
     }

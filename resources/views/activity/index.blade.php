@@ -12,42 +12,23 @@
                     <div class="card-header">{{ __('Registered Activity') }}</div>
                     <div class="card-body">
                         <div class="col-md-12">
-                            <table class="login-history row justify-content-center">
-                                @if(sizeof($activities) == 0)
-                                    <tr>
-                                        <div class="row justify-content-center">
-                                            <span>You have no registered activity.</span>
-                                        </div>
-                                    </tr>
-                                @else
-                                    <tr class="login-history-title">
-                                        <td class="login-history-element">
-                                            <p>Date and Hour of Activity</p>
-                                        </td>
-                                        <td class="login-history-element">
-                                            <p>Function</p>
-                                        </td>
-                                        <td class="login-history-element">
-                                            <p>User Login</p>
-                                        </td>
-                                    </tr>
-                                    @foreach($activities as $activity)
-                                        @if($activity->user_id == Auth::user()->id)
-                                            <tr>
-                                                <td class="login-history-element">
-                                                    {{ $activity->created_at }}
-                                                </td>
-                                                <td class="login-history-element">
-                                                    {{ $activity->functions->description }}
-                                                </td>
-                                                <td class="login-history-element">
-                                                    {{ $activity->user_id }}
-                                                </td>
-                                            </tr>
-                                        @endif
-                                    @endforeach
-                                @endif
-                            </table>
+                            <hr>
+                            <p class="row justify-content-center">Data for {{Cache::get('registeredActivity')}} records</p>
+                            <hr>
+                            <div class="row justify-content-center">
+                                <a class="activity-filter" href="/activity/all">All</a>
+                                <a class="activity-filter" href="/activity/create">Create</a>
+                                <a class="activity-filter" href="/activity/read">Read</a>
+                                <a class="activity-filter" href="/activity/update">Update</a>
+                                <a class="activity-filter" href="/activity/delete">Delete</a>
+                                <a class="activity-filter" href="/activity/modifymode">Modify Mode</a>
+                                <a class="activity-filter" href="/activity/readmode">Read Mode</a>
+                            </div>
+                            <hr>
+                        </div>
+                        <div class="col-md-12">
+                            @include('activity.list')
+                            <hr>
                         </div>
                     </div>
                 </div>

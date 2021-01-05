@@ -49,9 +49,6 @@ class ChangePasswordController extends Controller
                 $password->save();
             }
         }
-
-        ActivityController::registerNewActivity('changemainpassword');
-
         return redirect('/home');
     }
 

@@ -21,7 +21,7 @@
                             @csrf
                             <div class="form-group row">
                                 <label for="email"
-                                       class="col-md-4 col-form-label text-md-right">{{ __('Adres E-Mail') }}</label>
+                                       class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Adress') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="email" type="email"
@@ -38,7 +38,7 @@
 
                             <div class="form-group row">
                                 <label for="password"
-                                       class="col-md-4 col-form-label text-md-right">{{ __('Hasło') }}</label>
+                                       class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="password" type="password"

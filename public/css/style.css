@@ -100,3 +100,7 @@ footer{
 .nav-link{
     color: black !important;
 }
+.activity-filter{
+    color: grey;
+    margin: 10px;
+}

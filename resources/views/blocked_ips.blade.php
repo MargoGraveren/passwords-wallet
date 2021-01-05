@@ -12,6 +12,7 @@
                     <div class="card-header">{{ __('Blocked IPs') }}</div>
                     <div class="card-body">
                         <div class="col-md-12">
+                            <hr>
                             <table class="login-history row justify-content-center">
                                 @if(sizeof($blockedIps) == 0)
                                     <tr>
@@ -49,6 +50,7 @@
                                     @endforeach
                                 @endif
                             </table>
+                        <hr>
                         </div>
                     </div>
                 </div>
